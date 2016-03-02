@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-fingerprint"
+    version="0.4.4">
+    <name>Fingerprint</name>
+    <description>The Fingerprint Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <js-module src="www/Fingerprint.js" name="Fingerprint">
+        <clobbers target="cordova.plugins.fingerprint" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="Fingerprint">
+                <param name="android-package" value="com.syrex.fingerprintlib.Fingerprint"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/main/java/com/syrex/fingerprintlib/Fingerprint.java" target-dir="src/com/syrex/fingerprintlib/" />
+        <source-file src="src/main/java/com/syrex/fingerprintlib/BluetoothManager.java" target-dir="src/com/syrex/fingerprintlib/" />
+        <source-file src="src/main/java/com/syrex/fingerprintlib/DeviceListener.java" target-dir="src/com/syrex/fingerprintlib/" />
+        <source-file src="src/main/java/com/syrex/fingerprintlib/GfpInterfaceHandler.java" target-dir="src/com/syrex/fingerprintlib/" />
+        <source-file src="src/main/java/com/syrex/fingerprintlib/GfpInterfaceResposeListener.java" target-dir="src/com/syrex/fingerprintlib/" />
+
+        <lib-file src="libs/Bluetoothjar.jar"/>
+
+        <source-file src="src/main/jniLibs/armeabi/libgfp_v30_for_android.so" target-dir="libs/armeabi/"/>
+        <source-file src="src/main/jniLibs/armeabi-v7a/libgfp_v30_for_android.so" target-dir="libs/libgfp_v30_for_android-v7a/"/>
+        <source-file src="src/main/jniLibs/mips/libgfp_v30_for_android.so" target-dir="libs/mips/"/>
+        <source-file src="src/main/jniLibs/x86/libgfp_v30_for_android.so" target-dir="libs/x86/"/>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+        </config-file>
+		
+
+        <config-file target="res/values/strings.xml" parent="/resources">
+			<string name="found_devices">Found devices:</string>
+			<string name="button_cancel">Cancel</string>
+			<string name="not_found_devices">No bluetooth device was found</string>
+			<string name="button_ok">OK</string>
+		</config-file>
+		<config-file target="res/values-ru/strings.xml" parent="/resources">
+			<string name="found_devices">Найденые устройства:</string>
+			<string name="button_cancel">Отмена</string>
+			<string name="not_found_devices">Ни одно блютуз устройство не найдено</string>
+			<string name="button_ok">ОК</string>
+		</config-file>
+
+    </platform>
+
+</plugin>

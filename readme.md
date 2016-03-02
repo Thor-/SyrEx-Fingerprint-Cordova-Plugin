@@ -1,0 +1,1 @@
+Cordova plugin for BIO JC fingerprint
