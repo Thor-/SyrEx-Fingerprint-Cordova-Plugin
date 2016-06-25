@@ -20,7 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.aids.syrex.ocfa.R;
+//import com.aids.syrex.ocfa.R;
 import com.wellcom.verify.GfpInterface;
 
 import java.util.ArrayList;
